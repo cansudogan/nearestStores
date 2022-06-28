@@ -1,6 +1,7 @@
 package com.jumbo.neareststores.controller;
 
 import com.jumbo.neareststores.entity.Store;
+import com.jumbo.neareststores.model.request.SearchFilterRequest;
 import com.jumbo.neareststores.service.StoreService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
@@ -28,5 +29,11 @@ public class StoreController {
                                         @RequestParam(name = "numberOfStores") Optional<Integer> numberOfStores,
                                         @RequestParam(name = "pageNumber") Optional<Integer> page) {
         return storeService.getNearestStores(latitude, longitude, numberOfStores.orElseGet(() -> 5), page.orElseGet(() -> 0));
+    }
+
+    @GetMapping("/search")
+    @Operation(summary = "Get nearest stores by search filter")
+    public Page<Store> getNearestStoresBySearchFilter(@Valid SearchFilterRequest searchFilterRequest){
+        return storeService.getNearestStoresBySearchFilter(searchFilterRequest.cretePoint(), searchFilterRequest.createPage(), searchFilterRequest);
     }
 }
