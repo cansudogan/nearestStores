@@ -1,6 +1,6 @@
 services:
   jumbo-case:
-    image: neareststores
+    image: nearest-stores
     restart: always
     build:
       context: .
