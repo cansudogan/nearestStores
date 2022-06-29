@@ -9,5 +9,4 @@ import java.util.List;
 public class SearchFilterResponse {
     private List<Store> stores;
     private Boolean hasNext;
-
 }

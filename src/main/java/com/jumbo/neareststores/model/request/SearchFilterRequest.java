@@ -23,7 +23,6 @@ public class SearchFilterRequest {
     @NotNull(message = "Latitude value cannot be null")
     private Double latitude;
 
-
     @NotNull(message = "Longitude value cannot be null")
     private Double longitude;
 

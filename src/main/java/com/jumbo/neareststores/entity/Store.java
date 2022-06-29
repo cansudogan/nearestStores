@@ -60,8 +60,4 @@ public class Store {
                 .sapStoreID(storeDto.getSapStoreID())
                 .build();
     }
-
-    private static Integer convertTime(String s) {
-        return Integer.parseInt(s.split(":")[0]) * 60 + Integer.parseInt(s.split(":")[1]);
-    }
 }
