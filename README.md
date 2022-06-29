@@ -8,7 +8,7 @@ Store servis has two endpoints:
 ------------
 
 
-|  Technologies | :tw-1f4cc:|
+|  Technologies | |
 | ------------ | ------------ |
 |  Java | 18 |
 |  SpringBoot | 2.7.0 |
