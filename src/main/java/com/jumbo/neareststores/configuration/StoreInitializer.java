@@ -11,10 +11,9 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class StoreInitializer {
+    private static final String RESOURCE_LOCATION = "classpath:/stores.json";
     private final InitialData initialData;
     private final StoreService storeService;
-    private static final String RESOURCE_LOCATION = "classpath:/stores.json";
-
 
     @EventListener(ContextRefreshedEvent.class)
     public void init(ContextRefreshedEvent event) {

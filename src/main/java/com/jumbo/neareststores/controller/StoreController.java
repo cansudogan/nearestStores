@@ -2,6 +2,7 @@ package com.jumbo.neareststores.controller;
 
 import com.jumbo.neareststores.entity.Store;
 import com.jumbo.neareststores.model.request.SearchFilterRequest;
+import com.jumbo.neareststores.model.response.SearchFilterResponse;
 import com.jumbo.neareststores.service.StoreService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -31,9 +32,9 @@ public class StoreController {
         return storeService.getNearestStores(latitude, longitude, numberOfStores.orElseGet(() -> 5), page.orElseGet(() -> 0));
     }
 
-    @GetMapping("/search")
+    @GetMapping("/search/stores")
     @Operation(summary = "Get nearest stores by search filter")
-    public Page<Store> getNearestStoresBySearchFilter(@Valid SearchFilterRequest searchFilterRequest){
-        return storeService.getNearestStoresBySearchFilter(searchFilterRequest.cretePoint(), searchFilterRequest.createPage(), searchFilterRequest);
+    public SearchFilterResponse getNearestStoresBySearchFilter(@Valid SearchFilterRequest searchFilterRequest) {
+        return storeService.getNearestStoresBySearchFilter(searchFilterRequest.createPoint(), searchFilterRequest.createPage(), searchFilterRequest);
     }
 }

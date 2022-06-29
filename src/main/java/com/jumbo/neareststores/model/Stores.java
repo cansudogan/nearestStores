@@ -30,6 +30,7 @@ public class Stores {
         private String longitude;
         private String latitude;
         private String complexNumber;
+        private String collectionPoint;
         private String todayOpen;
         private String todayClose;
         private String locationType;

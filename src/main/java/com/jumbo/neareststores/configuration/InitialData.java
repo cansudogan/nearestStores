@@ -16,7 +16,9 @@ public class InitialData {
     private final ResourceLoader resourceLoader;
 
     @SneakyThrows
-    public Stores initialStores(String resourceLocation){
+    public Stores initialStores(String resourceLocation) {
         return mapper.readValue(resourceLoader.getResource(resourceLocation).getInputStream(), Stores.class);
     }
+
+
 }

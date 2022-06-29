@@ -20,12 +20,11 @@ class StoreServiceTest {
     private StoreRepository storeRepository;
     @Autowired
     private StoreService storeService;
-
     @BeforeEach
     @SneakyThrows
     void setUp(){
         storeRepository.saveAll(
-                List.of(Store.builder().addressName("trial1").location(new GeoJsonPoint(1.10, 1.10)).build(),
+                List.of(Store.builder().addressName("trial1").location(new GeoJsonPoint(1.10, 1.10)).todayOpen("Gesloten").todayClose("Gesloten").build(),
                         Store.builder().addressName("trial2").location(new GeoJsonPoint(1.10, 1.10)).build(),
                         Store.builder().addressName("trial3").location(new GeoJsonPoint(2.10, 2.10)).build(),
                         Store.builder().addressName("trial4").location(new GeoJsonPoint(2.20, 2.20)).build(),
@@ -57,6 +56,4 @@ class StoreServiceTest {
             Assertions.assertEquals(3.20, result.getContent().get(1).getLocation().getY(), 0.0005);
         }
     }
-
-
 }
